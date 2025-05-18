@@ -69,7 +69,7 @@
 
                 </ul>
 
-                <a class="nav-link active" aria-current="page" href="#">Login</a>
+                <a class="nav-link active" aria-current="page" href="/login">Login</a>
             </div>
         </div>
     </nav>
