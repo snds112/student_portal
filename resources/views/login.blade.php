@@ -35,6 +35,9 @@
             width: 100%;
             padding: 10px;
         }
+        .form-label {
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -50,17 +53,52 @@
             </div>
             
             <!-- Login Form -->
-            <form>
+            <form method="POST" action="{{ route('login.submit') }}">
+                @csrf
+
+                <!-- User Type Selection -->
+                <div class="mb-3">
+                    <label for="user_type" class="form-label">Login As</label>
+                    <select id="user_type" class="form-control @error('user_type') is-invalid @enderror" name="user_type" required>
+                        <option value="">Select User Type</option>
+                        <option value="student" {{ old('user_type') == 'student' ? 'selected' : '' }}>Student</option>
+                        <option value="admin" {{ old('user_type') == 'admin' ? 'selected' : '' }}>Admin</option>
+                    </select>
+                    @error('user_type')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
                 <!-- Email Field -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <label for="email" class="form-label">Email Address</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" 
+                           name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 
                 <!-- Password Field -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
+                           name="password" required autocomplete="current-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Remember Me -->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
                 
                 <!-- Login Button -->
