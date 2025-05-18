@@ -69,7 +69,27 @@
 
                 </ul>
 
-                <a class="nav-link active" aria-current="page" href="/login">Login</a>
+
+
+                @auth('admin')
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <input type="hidden" name="user_type" value="admin">
+                        <button type="submit" class="btn btn-link nav-link">Logout</button>
+                    </form>
+                    @elseauth('student')
+
+
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <input type="hidden" name="user_type" value="student">
+                        <button type="submit" class="btn btn-link nav-link">Logout</button>
+                    </form>
+                @else
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                @endauth
+
+
             </div>
         </div>
     </nav>
@@ -105,8 +125,9 @@
         <div class="col-md-4 d-flex align-items-center"> <a href="/"
                 class="mb-3 mx-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
                 <img src="https://fsciences.univ-setif.dz/assets/logo-81a7d49ffa8b5951d78705e52e50f0b3778d870202ed2632e5b9a437bd4a5e08.png"
-                alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Student Portal</span> </div>
+                    alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Student Portal</span>
+        </div>
 
     </footer>
 </body>

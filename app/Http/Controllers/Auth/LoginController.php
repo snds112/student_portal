@@ -33,10 +33,13 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request)
-    {
-        Auth::guard($request->user_type)->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
-    }
+{
+    $guard = $request->user_type ?? null;
+    
+    Auth::guard($guard)->logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    
+    return redirect('/');
+}
 }
