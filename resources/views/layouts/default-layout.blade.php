@@ -80,7 +80,7 @@
 
         .main-card {
             overflow: hidden;
-            height: 80vh;
+            min-height: 80vh;
 
         }
 
@@ -159,7 +159,7 @@
                             <ul class="dropdown-menu">
                                 @foreach (config('navigation.departments') as $route => $name)
                                     <li>
-                                        <a class="dropdown-item {{ request()->is($route) ? 'active' : '' }}"
+                                        <a class="dropdown-item {{ (request()->is($route)) ? 'active' : '' }}"
                                             href="/{{ $route }}/announcements">
                                             {{ $name }}
                                         </a>
