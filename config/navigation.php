@@ -2,8 +2,8 @@
 
 return [
     'departments' => [
-        'computer-science' => 'Computer Science',
-        'mathematics' => 'Mathematics',
+        'computer_science' => 'Computer Science',
+        'maths' => 'Mathematics',
         'physics' => 'Physics',
         'chemistry' => 'Chemistry'
     ],
@@ -11,6 +11,6 @@ return [
         'announcements' => 'Announcements',
         'wish-lists' => 'Wish Lists', 
         'projects' => 'Projects',
-        'account' => 'Account'
+        
     ]
 ];

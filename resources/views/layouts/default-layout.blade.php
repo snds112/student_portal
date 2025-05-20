@@ -150,7 +150,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    @if (auth()->guard('admin')->check() || auth()->guard('student')->check())
+                   
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -160,14 +160,15 @@
                                 @foreach (config('navigation.departments') as $route => $name)
                                     <li>
                                         <a class="dropdown-item {{ request()->is($route) ? 'active' : '' }}"
-                                            href="/{{ $route }}">
+                                            href="/{{ $route }}/announcements">
                                             {{ $name }}
                                         </a>
                                     </li>
                                 @endforeach
+
                             </ul>
                         </li>
-                    @endif
+                   
                 </ul>
 
                 <!-- Right-aligned Auth Links -->
@@ -230,15 +231,10 @@
                                 @php
                                     // Get current URL segments
                                     $segments = request()->segments();
-                                    // Check if we're in a department section
-$isDepartment = in_array(
-    $segments[0] ?? null,
-    array_keys(config('navigation.departments')),
-);
-// Build the correct URL
-$url = $isDepartment
-    ? url(implode('/', [request()->segment(1), $route]))
-                                        : url($route);
+                                        // Check if we're in a department section
+                                    $isDepartment = in_array(  $segments[0] ?? null,array_keys(config('navigation.departments')),);
+                                    // Build the correct URL
+                                    $url = $isDepartment ? url(implode('/', [request()->segment(1), $route])) : url($route);
                                     // Check active state
                                     $isActive = request()->is("*{$route}*");
                                 @endphp
@@ -249,20 +245,20 @@ $url = $isDepartment
                                     </a>
                                 </li>
                             @endforeach
+                            
                         @else
-                            <a class="nav-link active" href="/">
+                            <span class="nav-link active" >
                                 Accouncements
-                            </a>
+                            </span>
 
                         @endif
                     </ul>
                 </div>
             </div>
 
-            <!-- Card Body -->
-            <div class="card-body">
+            
                 @yield('content')
-            </div>
+            
         </div>
     </div>
 </main>
