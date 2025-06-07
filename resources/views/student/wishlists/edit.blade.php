@@ -1,20 +1,5 @@
 @extends('layouts.edit-create-layout')
-@section('styles')
-    <style>
-        .list-group-item {
-            cursor: pointer;
-        }
 
-        .list-group-item:hover {
-            background-color: #f8f9fa;
-        }
-
-        .max-selected {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-@endsection
 
 @section('scripts')
      @vite('resources/js/wishlists.js')
@@ -34,7 +19,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h3>Selected Projects</h3>
+                    <h3 class="my-3">Selected Projects</h3>
                     <div class="list-group">
                         @foreach ($selectedProjects as $project)
                             <label class="list-group-item">
@@ -59,7 +44,7 @@
                 </div>
 
                 <div class="col-md-6 col-sm-12">
-                    <h3>Available Projects</h3>
+                    <h3 class="my-3">Available Projects</h3>
                     <div class="list-group">
                         @foreach ($projects as $project)
                             <label class="list-group-item">
@@ -83,8 +68,20 @@
                 </div>
             </div>
 
-            <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+           
+             
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-between mt-3">
+                    <div>
+                       <button type="submit" class="btn btn-primary">Save Changes</button>
+                       <a href="{{ route('wishlists.index') }}" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+
+                    </div>
+
+                    
+                </div>
             </div>
         </form>
     </div>
