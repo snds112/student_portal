@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProjectWishlists;
 
 class Project extends Model
 {
-     /**
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -30,5 +31,9 @@ class Project extends Model
         'description'
     ];
 
-
+    public function wishingStudents()
+    {
+        return $this->belongsToMany(Student::class, 'student_project_wishlist')
+            ->using(ProjectWishlists::class);
+    }
 }

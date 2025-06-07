@@ -9,6 +9,7 @@ use App\Models\Admin;
 use App\Models\Student;
 use App\Models\Announcements;
 use App\Models\Project;
+use App\Models\ProjectWishlists;
 class BaseSeeder extends Seeder
 {
     /**
@@ -180,5 +181,33 @@ class BaseSeeder extends Seeder
     foreach ($projects as $project) {
             Project::create($project);
         }
+
+
+
+    // Get the first student
+        $student = Student::first();
+        
+        // Get the first 5 projects
+        $projects = Project::take(5)->get();
+        
+        // Check if we have both student and projects
+        if ($student && $projects->count() > 0) {
+            // Add projects to student's wishlist
+            foreach ($projects as $project) {
+                ProjectWishlists::create([
+                    'student_id' => $student->id,
+                    'project_id' => $project->id
+                ]);
+                
+                // Alternative using the relationship:
+                // $student->wishlistedProjects()->attach($project->id);
+            }
+            
+            $this->command->info('Added 5 projects to first student\'s wishlist!');
+        } else {
+            $this->command->error('No student or projects found!');
+        }
     }
+
+    
 }

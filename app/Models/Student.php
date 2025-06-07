@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\ProjectWishlists;
 
 class Student extends Authenticatable
 {
@@ -12,10 +13,19 @@ class Student extends Authenticatable
     protected $guard = 'student';
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+    public function wishlistProjects()
+    {
+        return $this->belongsToMany(Project::class, 'student_project_wishlist')
+            ->using(ProjectWishlists::class);
+    }
 }
