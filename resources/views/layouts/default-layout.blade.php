@@ -231,11 +231,11 @@
                                 @php
                                     $segments = request()->segments();
                                    
-                                    $isAnnouncementDepartment = ($segments[0] == 'announcements');
-                                   
+                                    $isAnnouncementGeneral = ($segments[0] == 'announcements');
+                                    $isDepartment = in_array(  $segments[0] ?? null,array_keys(config('navigation.departments')),);
                                     $url =  url($route);
                                    
-                                    if ($route == 'announcements' && !$isAnnouncementDepartment)
+                                    if ($route == 'announcements' && !$isAnnouncementGeneral && $isDepartment)
                                     {$url = url(implode('/', [request()->segment(1), $route]));}
 
                                     $isActive = request()->is("*{$route}*");
