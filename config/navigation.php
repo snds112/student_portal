@@ -11,7 +11,7 @@ return [
         'announcements' => 'Announcements',
         
         'projects' => 'Projects',
-        'wish-lists' => 'Wish Lists', 
+        'students' => 'Students', 
         
     ],
     'card_nav_student' => [

@@ -14,7 +14,7 @@
 <div class="card-body">
        
         
-        <div class="card-body">
+       
             <div class="row mb-3">
                 <div class="col-md-4 fw-bold">First Name:</div>
                 <div class="col-md-8">{{ $account->first_name }}</div>
@@ -47,6 +47,6 @@
             </div>
             
            
-        </div>
+        
     </div>
 @endsection

@@ -49,3 +49,6 @@ Route::get('/account/wish-list/edit', [WishlistsController::class, 'edit'])->nam
 Route::post('/account/wish-list', [WishlistsController::class, 'update'])->name('wishlists.update');
 
 Route::get('/account', [StudentController::class, 'index'])->name('student.index');
+
+Route::get('/students', [StudentController::class, 'list_students'])->name('student.list');
+Route::get('/students/{id}', [StudentController::class, 'single_student'])->name('student.single');
