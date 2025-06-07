@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Student;
 use App\Models\Announcements;
-
+use App\Models\Project;
 class BaseSeeder extends Seeder
 {
     /**
@@ -137,6 +137,48 @@ class BaseSeeder extends Seeder
 
         foreach ($announcements as $announcement) {
             Announcements::create($announcement);
+        }
+
+            $projects = [
+        [
+            'title' => 'AI-Powered Chatbot Development',
+            'description' => 'Building a conversational AI chatbot using Python and NLP techniques to improve customer service interactions.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'title' => 'Blockchain-Based Voting System',
+            'description' => 'A secure digital voting platform leveraging Ethereum smart contracts to ensure transparency and prevent fraud.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'title' => 'Quantum Entanglement Experiments',
+            'description' => 'Investigating quantum entanglement phenomena using photon pairs in a controlled laboratory environment.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'title' => 'Nanomaterial Catalysis Research',
+            'description' => 'Developing new nanomaterials for catalytic applications in sustainable chemical reactions.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'title' => 'Topological Data Analysis',
+            'description' => 'Applying topological methods to analyze complex high-dimensional datasets in mathematical modeling.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'title' => 'Machine Learning for Drug Discovery',
+            'description' => 'Using neural networks to predict molecular properties and accelerate pharmaceutical research.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]
+    ];
+    foreach ($projects as $project) {
+            Project::create($project);
         }
     }
 }
