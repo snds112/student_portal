@@ -1,13 +1,4 @@
 @extends('layouts.default-layout-student')
-@section('styles')
-    
-@endsection
-
-
-@section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-@endsection
-
 
 
 @section('content')
@@ -41,12 +32,7 @@
                 </div>
             </div>
             
-            {{-- Security note about password --}}
-            <div class="alert alert-info mt-4">
-                <i class="fas fa-lock"></i> For security reasons, passwords are never displayed and are stored encrypted.
-            </div>
-            
-           
+          
         
     </div>
 @endsection

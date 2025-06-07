@@ -17,24 +17,24 @@
 
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid position-relative"> <!-- Added position-relative -->
-            <!-- Logo -->
+        <div class="container-fluid position-relative"> 
+          
             <a class="navbar-brand" href="#">
                 <img src="https://fsciences.univ-setif.dz/assets/logo-81a7d49ffa8b5951d78705e52e50f0b3778d870202ed2632e5b9a437bd4a5e08.png"
                     alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 Student Portal
             </a>
 
-            <!-- Toggler Button (visible on mobile) -->
+            
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Collapsible Content -->
+           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Centered Navigation Items -->
+             
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -66,7 +66,7 @@
 
                 </ul>
 
-                <!-- Right-aligned Auth Links -->
+               
                 <div class="d-flex">
                     @if (auth()->guard('admin')->check())
                         <form method="POST" action="{{ route('logout') }}">
@@ -124,12 +124,6 @@
                         @if (auth()->guard('student')->check())
                             @foreach (config('navigation.card_nav_student') as $route => $name)
                                 @php
-                                    
-
-                                   
-                                    
-                                    
-
                                     
                                     $url = url(implode('/', [request()->segment(1), $route]));
                                      if ($route == 'account' ) {

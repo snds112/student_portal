@@ -18,7 +18,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid position-relative"> <!-- Added position-relative -->
+        <div class="container-fluid position-relative">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
                 <img src="https://fsciences.univ-setif.dz/assets/logo-81a7d49ffa8b5951d78705e52e50f0b3778d870202ed2632e5b9a437bd4a5e08.png"
@@ -26,16 +26,16 @@
                 Student Portal
             </a>
 
-            <!-- Toggler Button (visible on mobile) -->
+           
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Collapsible Content -->
+           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Centered Navigation Items -->
+               
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -67,7 +67,7 @@
 
                 </ul>
 
-                <!-- Right-aligned Auth Links -->
+               
                 <div class="d-flex">
                     @if (auth()->guard('admin')->check())
                         <form method="POST" action="{{ route('logout') }}">
@@ -118,7 +118,7 @@
 <main class="flex-grow-1">
     <div class="container">
         <div class="card main-card">
-            <!-- Card Navbar -->
+           
             <div class="card-navbar navbar navbar-expand navbar-light bg-light">
                 <div class="container-fluid">
                     <ul class="navbar-nav card-nav-list">

@@ -21,7 +21,7 @@
                     <div class="d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start">
                             <h4 class="list-group-item-heading mb-2">{{ $project->title }}</h4>
-                            <!-- Edit Button - Visible on larger screens -->
+                           
                             @auth('admin')
                             <div class="d-none d-md-block">
                                 <a href="{{ route('projects.edit', $project->id) }}" 
@@ -39,7 +39,7 @@
                                 Created on {{ $project->created_at->format('M d, Y') }}
                             </small>
                             
-                            <!-- Edit Button - Visible on mobile screens -->
+                          
                             @auth('admin')
                             <div class="d-md-none mt-2">
                                 <a href="{{ route('projects.edit', $project->id) }}" 

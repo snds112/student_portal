@@ -32,11 +32,6 @@
                     </div>
                 </div>
 
-                {{-- Security note about password --}}
-                <div class="alert alert-info mt-4">
-                    <i class="fas fa-lock"></i> For security reasons, passwords are never displayed and are stored
-                    encrypted.
-                </div>
             </div>
 
             <div class="col-md-6 col-sm-12">

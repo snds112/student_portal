@@ -43,7 +43,7 @@
 <body>
     <div class="container">
         <div class="login-container">
-            <!-- Centered Logo -->
+           
             <div class="logo-container">
                 <img src="https://fsciences.univ-setif.dz/assets/logo-81a7d49ffa8b5951d78705e52e50f0b3778d870202ed2632e5b9a437bd4a5e08.png" 
                      alt="Logo" 
@@ -52,11 +52,11 @@
                 <div>UFAS1</div>
             </div>
             
-            <!-- Login Form -->
+           
             <form method="POST" action="{{ route('login.submit') }}">
                 @csrf
 
-                <!-- User Type Selection -->
+               
                 <div class="mb-3">
                     <label for="user_type" class="form-label">Login As</label>
                     <select id="user_type" class="form-control @error('user_type') is-invalid @enderror" name="user_type" required>
@@ -71,7 +71,7 @@
                     @enderror
                 </div>
 
-                <!-- Email Field -->
+               
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" 
@@ -83,7 +83,7 @@
                     @enderror
                 </div>
                 
-                <!-- Password Field -->
+            
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
@@ -95,19 +95,19 @@
                     @enderror
                 </div>
 
-                <!-- Remember Me -->
+                
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
                 
-                <!-- Login Button -->
+                
                 <button type="submit" class="btn btn-primary btn-login">Login</button>
             </form>
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

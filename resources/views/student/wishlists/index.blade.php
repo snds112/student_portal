@@ -1,13 +1,4 @@
 @extends('layouts.default-layout-student')
-@section('styles')
-    
-@endsection
-
-
-@section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-@endsection
-
 
 
 @section('content')
@@ -28,7 +19,7 @@
                     <div class="d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start">
                             <h4 class="list-group-item-heading mb-2">{{ $project->title }}</h4>
-                            <!-- Edit Button - Visible on larger screens -->
+                            
                             
                         </div>
                         

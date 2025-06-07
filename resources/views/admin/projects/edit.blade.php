@@ -45,7 +45,7 @@
                     </div>
 
                     @auth('admin')
-                        <!-- Delete Button (outside the edit form) -->
+                       
                         <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
                             <i class="fas fa-trash"></i> Delete
                         </button>
