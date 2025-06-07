@@ -16,14 +16,14 @@ class ProjectsController extends Controller
     
         $projects = Project::orderBy('created_at', 'desc')->get();
        
-        return view('projects.index', [
+        return view('admin.projects.index', [
             'projects' => $projects
             
         ]);
     }
     public function create()
     {
-        return view('projects.create');
+        return view('admin.projects.create');
     }
 
 
@@ -50,7 +50,7 @@ class ProjectsController extends Controller
     public function edit(Project $project)
     {
        
-        return view('projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'));
     }
 
     public function update(Request $request, $id)

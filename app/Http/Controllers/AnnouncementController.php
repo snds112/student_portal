@@ -24,14 +24,14 @@ class AnnouncementController extends Controller
             ->get();
 
        
-        return view('announcements.index', [
+        return view('admin.announcements.index', [
             'announcements' => $announcements,
             'department' => $dept
         ]);
     }
     public function create()
     {
-        return view('announcements.create');
+        return view('admin.announcements.create');
     }
 
 
@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
     }
     public function edit(Announcements $announcement)
     {
-        return view('announcements.edit', compact('announcement'));
+        return view('admin.announcements.edit', compact('announcement'));
     }
 
     public function update(Request $request, $id)
