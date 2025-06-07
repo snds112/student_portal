@@ -150,25 +150,31 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                   
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Department
-                            </a>
-                            <ul class="dropdown-menu">
-                                @foreach (config('navigation.departments') as $route => $name)
-                                    <li>
-                                        <a class="dropdown-item {{ (request()->is($route)) ? 'active' : '' }}"
-                                            href="/{{ $route }}/announcements">
-                                            {{ $name }}
-                                        </a>
-                                    </li>
-                                @endforeach
 
-                            </ul>
-                        </li>
-                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Department
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach (config('navigation.departments') as $route => $name)
+                                <li>
+                                    <a class="dropdown-item {{ request()->is($route) ? 'active' : '' }}"
+                                        href="/{{ $route }}/announcements">
+                                        {{ $name }}
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </li>
+                    @if(auth()->guard('student')->check())
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/account">Account</a>
+                    </li>
+                    
+                    @endif
+
                 </ul>
 
                 <!-- Right-aligned Auth Links -->
@@ -226,32 +232,33 @@
             <div class="card-navbar navbar navbar-expand navbar-light bg-light">
                 <div class="container-fluid">
                     <ul class="navbar-nav card-nav-list">
-                        @if (auth()->guard('admin')->check() || auth()->guard('student')->check())
-                            @foreach (config('navigation.card_nav') as $route => $name)
+                        @if (auth()->guard('student')->check())
+                            @foreach (config('navigation.card_nav_student') as $route => $name)
                                 @php
-                                    $segments = request()->segments();
+                                    
+
                                    
-                                    $isAnnouncementGeneral = ($segments[0] == 'announcements');
-                                    $isDepartment = in_array(  $segments[0] ?? null,array_keys(config('navigation.departments')),);
-                                    $url =  url($route);
-                                   
-                                    if ($route == 'announcements' && !$isAnnouncementGeneral && $isDepartment)
-                                    {$url = url(implode('/', [request()->segment(1), $route]));}
+                                    
+                                    
+
+                                    
+                                    $url = url(implode('/', [request()->segment(1), $route]));
+                                     if ($route == 'account' ) {
+                                        $url = url( $route);
+                                    }
 
                                     $isActive = request()->is("*{$route}*");
                                     $class = $isActive ? 'active' : '';
 
                                 @endphp
                                 <li class="nav-item">
-                                    <a class="nav-link {{ $class }}"
-                                        href="{{ $url }}">
+                                    <a class="nav-link {{ $class }}" href="{{ $url }}">
                                         {{ $name }}
                                     </a>
                                 </li>
                             @endforeach
-                            
                         @else
-                            <span class="nav-link active" >
+                            <span class="nav-link active">
                                 Accouncements
                             </span>
 
@@ -260,9 +267,9 @@
                 </div>
             </div>
 
-            
-                @yield('content')
-            
+
+            @yield('content')
+
         </div>
     </div>
 </main>
@@ -278,8 +285,8 @@
     </div>
 </footer>
 
-    
- @yield('scripts')
+
+@yield('scripts')
 </body>
 
 </html>

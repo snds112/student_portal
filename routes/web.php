@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ProjectsController;
-
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\WishlistsController;
 
 Route::get('/', function () {
@@ -44,6 +44,8 @@ Route::put('/projects/{id}', [ProjectsController::class, 'update'])->name('proje
 Route::delete('/projects/{id}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
 
 
-Route::get('/wish-lists', [WishlistsController::class, 'index'])->name('wishlists.index');
-Route::get('/wish-lists/edit', [WishlistsController::class, 'edit'])->name('wishlists.edit');
-Route::post('/wish-lists', [WishlistsController::class, 'update'])->name('wishlists.update');
+Route::get('/account/wish-list', [WishlistsController::class, 'index'])->name('wishlists.index');
+Route::get('/account/wish-list/edit', [WishlistsController::class, 'edit'])->name('wishlists.edit');
+Route::post('/account/wish-list', [WishlistsController::class, 'update'])->name('wishlists.update');
+
+Route::get('/account', [StudentController::class, 'index'])->name('student.index');

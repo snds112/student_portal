@@ -160,7 +160,7 @@
                             @foreach (config('navigation.departments') as $route => $name)
                                 <li>
                                     <a class="dropdown-item {{ request()->is($route) ? 'active' : '' }}"
-                                        href="/{{ $route }}">
+                                        href="/{{ $route }}/announcements">
                                         {{ $name }}
                                     </a>
                                 </li>
@@ -168,11 +168,11 @@
 
                         </ul>
                     </li>
-                    @if (auth()->guard('student')->check())
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/account">Account</a>
-                        </li>
-
+                    @if(auth()->guard('student')->check())
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/account">Account</a>
+                    </li>
+                    
                     @endif
 
                 </ul>
@@ -228,8 +228,45 @@
 <main class="flex-grow-1">
     <div class="container">
         <div class="card main-card">
+            <!-- Card Navbar -->
+            <div class="card-navbar navbar navbar-expand navbar-light bg-light">
+                <div class="container-fluid">
+                    <ul class="navbar-nav card-nav-list">
+                        @if (auth()->guard('admin')->check())
+                            @foreach (config('navigation.card_nav') as $route => $name)
+                                @php
+                                    $segments = request()->segments();
 
+                                    $isAnnouncementGeneral = $segments[0] == 'announcements';
+                                    $isDepartment = in_array(
+                                        $segments[0] ?? null,
+                                        array_keys(config('navigation.departments')),
+                                    );
+                                    $url = url($route);
 
+                                    if ($route == 'announcements' && !$isAnnouncementGeneral && $isDepartment) {
+                                        $url = url(implode('/', [request()->segment(1), $route]));
+                                    }
+
+                                    $isActive = request()->is("*{$route}*");
+                                    $class = $isActive ? 'active' : '';
+
+                                @endphp
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $class }}" href="{{ $url }}">
+                                        {{ $name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        @else
+                            <span class="nav-link active">
+                                Accouncements
+                            </span>
+
+                        @endif
+                    </ul>
+                </div>
+            </div>
 
 
             @yield('content')
@@ -249,7 +286,7 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
 @yield('scripts')
 </body>
 

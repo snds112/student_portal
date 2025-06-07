@@ -1,4 +1,4 @@
-@extends('layouts.default-layout')
+@extends('layouts.edit-create-layout')
 @section('styles')
     <style>
         .list-group-item {

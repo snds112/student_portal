@@ -1,4 +1,4 @@
-@extends('layouts.default-layout')
+@extends('layouts.default-layout-admin')
 @section('styles')
     
 @endsection

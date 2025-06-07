@@ -9,8 +9,16 @@ return [
     ],
     'card_nav' => [
         'announcements' => 'Announcements',
-        'wish-lists' => 'Wish Lists', 
+        
         'projects' => 'Projects',
+        'wish-lists' => 'Wish Lists', 
+        
+    ],
+    'card_nav_student' => [
+        
+        
+        'account' => 'Information',
+        'wish-list' => ' My Wish List', 
         
     ]
 ];
