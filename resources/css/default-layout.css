@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 2rem;
+}
+
+.main-card {
+    margin: auto auto;
+    max-width: 1200px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-navbar {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+
+}
+
+.card-navbar .container-fluid {
+    display: inline-block;
+
+    width: auto;
+
+    min-width: 100%;
+
+}
+
+.card-navbar .navbar-nav {
+    display: inline-flex;
+    width: auto;
+}
+
+
+.card-navbar .account-link {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f8f9fa;
+
+    padding: 0.5rem 0;
+}
+
+
+.card-navbar .nav-item {
+    padding: 0 0.5rem;
+}
+
+.main-card {
+    overflow: hidden;
+    min-height: 80vh;
+
+}
+
+.navbar-brand {
+
+    left: 1rem;
+}
+
+.navbar-collapse {
+    width: 100%;
+}
+
+
+@media (min-width: 992px) {
+    .navbar-brand {
+        position: absolute;
+        left: 1rem;
+    }
+
+    .navbar-collapse {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    .navbar-nav.mx-auto {
+        margin: 0.5rem 0 !important;
+
+    }
+
+    .dropdown-menu {
+        position: static !important;
+
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-card {
+        margin: 2rem 1rem;
+    }
+}

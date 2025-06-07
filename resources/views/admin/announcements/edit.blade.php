@@ -1,12 +1,4 @@
 @extends('layouts.edit-create-layout')
-@section('styles')
-@endsection
-
-
-@section('scripts')
-   
-    
-@endsection
 
 
 

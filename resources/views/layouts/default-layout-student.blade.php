@@ -12,118 +12,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Student Portal</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 2rem;
-        }
-
-        .main-card {
-            margin: auto auto;
-            max-width: 1200px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-navbar {
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            padding: 0.5rem 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, .125);
-            overflow-x: auto;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-            position: relative;
-            /* Needed for absolute positioning of account link */
-        }
-
-        .card-navbar .container-fluid {
-            display: inline-block;
-            /* Makes container fit content */
-            width: auto;
-            /* Prevents full-width behavior */
-            min-width: 100%;
-            /* Ensures it takes full width when needed */
-        }
-
-        .card-navbar .navbar-nav {
-            display: inline-flex;
-            width: auto;
-        }
-
-        /* Account link positioning */
-        .card-navbar .account-link {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #f8f9fa;
-            /* Match navbar background */
-            padding: 0.5rem 0;
-        }
-
-        /* Ensure nav items have spacing */
-        .card-navbar .nav-item {
-            padding: 0 0.5rem;
-        }
-
-        .main-card {
-            overflow: hidden;
-            min-height: 80vh;
-
-        }
-
-        .navbar-brand {
-
-            left: 1rem;
-        }
-
-        .navbar-collapse {
-            width: 100%;
-        }
-
-        /* Center the nav items on desktop */
-        @media (min-width: 992px) {
-            .navbar-brand {
-                position: absolute;
-                left: 1rem;
-            }
-
-            .navbar-collapse {
-                width: 100%;
-            }
-        }
-
-        /* Mobile styles */
-        @media (max-width: 991.98px) {
-            .navbar-nav.mx-auto {
-                margin: 0.5rem 0 !important;
-                /* Reset margin for mobile */
-            }
-
-            .dropdown-menu {
-                position: static !important;
-                /* Better dropdown behavior on mobile */
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .main-card {
-                margin: 2rem 1rem;
-            }
-        }
-    </style>
+     @vite('resources/css/default-layout.css')
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -286,6 +175,7 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 @yield('scripts')
 </body>
 
