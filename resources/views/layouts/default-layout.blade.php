@@ -229,17 +229,21 @@
                         @if (auth()->guard('admin')->check() || auth()->guard('student')->check())
                             @foreach (config('navigation.card_nav') as $route => $name)
                                 @php
-                                    // Get current URL segments
                                     $segments = request()->segments();
-                                        // Check if we're in a department section
-                                    $isDepartment = in_array(  $segments[0] ?? null,array_keys(config('navigation.departments')),);
-                                    // Build the correct URL
-                                    $url = $isDepartment ? url(implode('/', [request()->segment(1), $route])) : url($route);
-                                    // Check active state
+                                   
+                                    $isAnnouncementDepartment = ($segments[0] == 'announcements');
+                                   
+                                    $url =  url($route);
+                                   
+                                    if ($route == 'announcements' && !$isAnnouncementDepartment)
+                                    {$url = url(implode('/', [request()->segment(1), $route]));}
+
                                     $isActive = request()->is("*{$route}*");
+                                    $class = $isActive ? 'active' : '';
+
                                 @endphp
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is($route) ? 'active' : '' }}"
+                                    <a class="nav-link {{ $class }}"
                                         href="{{ $url }}">
                                         {{ $name }}
                                     </a>

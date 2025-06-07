@@ -31,33 +31,7 @@ class Announcements extends Model
         'dept'
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'dept' => 'string', // Optional, but can be useful
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime'
-    ];
 
-    // If you want to define the possible department values
-    public const DEPARTMENTS = [
-        'general' => 'General',
-        'computer_science' => 'Computer Science',
-        'maths' => 'Mathematics',
-        'physics' => 'Physics',
-        'chemistry' => 'Chemistry'
-    ];
 
-    /**
-     * Get the human-readable department name
-     *
-     * @return string
-     */
-    public function getDepartmentNameAttribute()
-    {
-        return self::DEPARTMENTS[$this->dept] ?? $this->dept;
-    }
+
 }
